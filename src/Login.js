@@ -11,6 +11,11 @@ function Login() {
   const signIn = e => {
     //!새로고침 방지, 과부하가 걸릴 수도 있으므로
     e.preventDefault()
+    auth.signInWithEmailAndPassword(email, password)
+    .then(auth => {
+      history.push('/')
+    })
+    .catch(error => alert(error.message()))
   }
 
   const register = e => {
